@@ -14,6 +14,10 @@ function _t(id) { return (_s(id).textContent); }
 
 function _c(id) { return parseInt(_s(id).textContent, 2); }
 
+var LANG = localStorage.getItem("lang") || "es";
+var filaSeleccionada = null;
+
+
 // Wires and records that will be used
 // Note: the wires are hidden at the beginning of each step
 var WIRES = [
@@ -153,53 +157,6 @@ var DECODER = new Map([
     ['1110','T'],
 ]);
 
-// Instructions information
-var INFOINST = new Map([
-    ['0000','Suma           '],
-    ['0001','Resta          '],
-    ['0010','Producto       '],
-    ['0011','Exponente      '],
-    ['0100','Operador AND   '],
-    ['0101','Operador OR    '],
-    ['0110','Mover a memoria'],
-    ['0111','Finalizar      '],
-    ['1000','Operador NOT   '],
-    ['1001','Incrementar +1 '],
-    ['1010','Decrementar -1 '],
-    ['1011','ROL            '],
-    ['1100','ROR            '],
-    ['1101','Operador XOR   '],
-    ['1110','RST acumulador '],
-]);
-
-// Comments for each step of the instructions
-var DOC = [];
-DOC['init'] = [];
-DOC['init'][1]  = "La *Unidad de control* envía una micro-orden para transferir el contenido del *Contador de programa* al *Registro de direcciones*."
-DOC['init'][2]  = "El *Contador de programa* aumenta en uno, por lo que su contenido será la dirección de la próxima instrucción a ejecutar. ";
-DOC['init'][3]  = "Se selecciona la posición de memoria que indica el *Registro de direcciones* y se realiza una lectura en la memoria.";
-DOC['init'][4]  = "Se deposita en el *Registro de datos* la instrucción a ejecutar.";
-DOC['init'][5]  = "Se realiza el traslado de la información contenida en el *Registro de datos* al *Registro de instrucciones*, donde se almacenará.";
-DOC['init'][6]  = "El *Decodificador* procede a la interpretación de la instrucción que serán los 4 primeros bits, es decir, interpreta el código de operación.";
-DOC['init'][7]  = "El *Registro de instrucciones* envía los 4 últimos bits al *Registro de direcciones*.";
-DOC['init'][8]  = "El *Registro de direcciones* busca en la memoria la celda correspondiente y procede a la lectura del dato.";
-DOC['init'][9]  = "La información es enviada al *Registro de datos*.";
-DOC['init'][10] = "El *Registro de datos* envía la información al *Registro de entrada*.";
-DOC['init'][11] = "El *Circuito operacional* realiza la operación con el *Registro acumulador* y el *Registro de entrada* y lo almacena de nuevo en el *Registro acumulador*.";
-DOC['0110'] = [];
-DOC['0110'][1] = "El *Registro de instrucciones* envía los 4 últimos bits al *Registro de direcciones*.";
-DOC['0110'][2] = "El *Registro de direcciones* busca en la memoria la celda en la que será almacenada el resultado.";
-DOC['0110'][3] = "El *Registro acumulador* envía la información al *Registro de datos*.";
-DOC['0110'][4] = "El *Registro de datos* procede a la escritura de la información en la celda seleccionada por el *Registro de Direcciones*.";
-DOC['0111'] = [];
-DOC['0111'][1] = "El *Decodificador* intepreta que se finaliza el programa y se para la ejecución.";
-
-// Comments for the special instructions
-DOC['1000'] = DOC['1001'] = DOC['1010'] = DOC['1011'] = DOC['1100'] = DOC['1110'] = [];
-DOC['1000'][1] = DOC['1001'][1] = DOC['1010'][1] = DOC['1011'][1] = DOC['1100'] = DOC['1110'] = "El *Registro acumulador* envía la información al *Registro de datos*.";
-DOC['1000'][2] = DOC['1001'][2] = DOC['1010'][2] = DOC['1011'][2] = DOC['1100'] = DOC['1110'] = "El *Registro de datos* envía la información al *Registro de entrada*.";
-DOC['1000'][3] = DOC['1001'][3] = DOC['1010'][3] = DOC['1011'][3] = DOC['1100'] = DOC['1110'] = "El *Circuito operacional* realiza la operación con SÓLO el *Registro de entrada* y lo almacena de nuevo en el *Registro acumulador*.";
-
 // Credits
 var ABOUT =
     '<span><a target="_blank" href="http://xitrus.es">Pedro Gutiérrez</a></span>: diseño y desarrollo del simulador <br>' +
@@ -208,49 +165,77 @@ var ABOUT =
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
+function instructionTable() {
+    // Tabla Instrucciones
+    var tbody = document.querySelector("#tabla-instrucciones tbody");
+    tbody.innerHTML = "";
+
+    const instructions = TEXTOS[LANG].INFOINST;
+    for (let i = 0; i < instructions.length; i++) {
+        const fila = instructions[i];
+        const tr = document.createElement("tr");
+        tr.id = "inst_" + fila[0];
+        tr.innerHTML = `
+            <td>${fila[0]}</td>
+            <td>${DECODER.get(fila[0])}</td>
+            <td>${fila[1]}</td>
+        `;
+        tbody.appendChild(tr);
+    }
+}
+
 function programSelector() {
-    var o = $('full_code'),
-        r = '';
-    // Info. instrucciones
-    r += "    Información de instrucciones\n";
-    r += "+--------+-----+-------------------+\n";
-    r += "|  Inst  |  D  |  Comentario       |\n";
-    r += "+--------+-----+-------------------+\n";
-    DECODER.forEach (function(value, key) {
-        r += '|  ' + key + '  |  ' + value + '  |  ' + INFOINST.get(key) +  '  |\n';
-    })
-    r += "------------------------------------\n";
-    for (var i = 0; i < TMT.length; i++)
-        r += '&nbsp;<label for="TMT' + i + '">' +
-            '<input id="TMT' + i + '" ' + (i == 0 ? 'checked' : '') + ' type="radio" name="TMT" value="' + i + '">' +
-            '<span class="c2">-</span><span class="c3">+</span>&nbsp;' +
-            TMT[i].tag.replace(/([0-9]+|OVERFLOW)/g, '<span class="c1">$1</span>') + '</label><br>';
-    r += "------------------------------------\n";
-    r += "              <span class='c2 pointer' id='run'>Ejecutar</span>\n";
-    r += "------------------------------------\n";
-    r += "          <span class='c3 pointer' id='upload'>Upload a program</span>\n";
-    o.innerHTML = r;
-    $('run').addEventListener('click', runProgram, false);
-    $('upload').addEventListener('click', uploadProgram, false);
+    setText();
+    // Botón ejecutar ejercicio
+    btnEjecutar = document.getElementById("btnEjecutar");
+    btnEjecutar.disabled = true;
+
+    instructionTable();
+
+    // Tabla Ejercicios
+    tbody = document.querySelector("#tabla-ejercicios tbody");
+    tbody.innerHTML = "";
+
+    const exercises = TMT;
+    for (let i = 0; i < exercises.length; i++) {
+        const fila = exercises[i];
+        const tr = document.createElement("tr");
+        tr.id = "exercise_" + i;
+        tr.innerHTML = `
+            <td>${fila["tag"]}</td>
+        `;
+        tr.addEventListener("click", () => {
+            //quitar la clase seleccionada de todas las filas, por si acaso
+            document.querySelectorAll("#tabla-ejercicios tbody tr").forEach(f => f.classList.remove("seleccionada"));
+            tr.classList.add("seleccionada");
+            filaSeleccionada = tr;
+            btnEjecutar.disabled = false;
+        });
+        tbody.appendChild(tr);
+    }
+
+    btnEjecutar.addEventListener('click', runProgram, false);
+    $('btnUpload').addEventListener('click', uploadProgram, false);
+    $('info_b_a').addEventListener('click', about, false);
+    const languageSelect = $('languageSelect');
+    if (languageSelect) languageSelect.value = LANG;
 };
 
 function runProgram(uploaded = false) {
     if (uploaded.isValid === false) {
         TM = JSON.parse(uploaded).table;
     } else {
-        var tmtNumber =
-            function () {
-                for (var i = 0; i < TMT.length; i++)
-                    if ($('TMT' + i).checked) return $('TMT' + i).value;
-            };
-        TM = TMT[tmtNumber()].table;
+        var tmtNumber = filaSeleccionada.id.split("_")[1];
+        TM = TMT[tmtNumber].table;
     }
+    $('ejercicios').style.display = 'none';
+    $('svg').classList.remove('hidden');
     init(true);
-    $('full').style.display = 'none';
-    $('info_b_r').addEventListener('click',
-        function () { $('full').style.display = ''; }, false);
-    $('info_b_a').addEventListener('click', about, false);
+    $('info_b_r').style.display = 'inline-block';
+    $('info_b_r').addEventListener('click',reset, false);
+    $('info_b_c').style.display = 'inline-block';
     $('info_b_c').addEventListener('click', hideDoc, false);
+    $('info_b_n').style.display = 'inline-block';
     $('info_b_n').addEventListener('click', buttonNextStep, false);
     addEventListener('keypress', keyPress, false);
     resetRecords();
@@ -287,7 +272,44 @@ function uploadProgram() {
     document.body.removeChild(input);
 };
 
+function reset() {
+    $('ejercicios').style.display = 'block';
+    $('svg').classList.add('hidden');
+    $('info').style.display = 'none';
+}
+
+function setText() {
+    instructionTable();
+    $('btnEjecutar').innerHTML = TEXTOS[LANG].execute;
+    $('btnUpload').innerHTML = TEXTOS[LANG].upload;
+    $('info_b_a').innerHTML = TEXTOS[LANG].credits;
+    $('info_b_c').innerHTML = TEXTOS[LANG].close;
+    $('info_b_n').innerHTML = TEXTOS[LANG].next;
+    $('info_b_r').innerHTML = TEXTOS[LANG].changeprogram;
+    $('inst').innerHTML = TEXTOS[LANG].instruction;
+    $('dir').innerHTML = TEXTOS[LANG].deco;
+    $('comment').innerHTML = TEXTOS[LANG].comment;
+    $('exercise').innerHTML = TEXTOS[LANG].exercise;
+    if (ACTUAL.inst && ACTUAL.step) {
+        $('info_cont').innerHTML = TEXTOS[LANG][ACTUAL.inst][ACTUAL.step-1].replace(/\*([^\*]+)\*/g, '<span>$1</span>');
+    }
+    document.title = TEXTOS[LANG].title;
+}
+
+function changeLanguage(e) {
+    LANG = e;
+    localStorage.setItem('lang', LANG);
+    if (TEXTOS[LANG]) {
+        setText();
+        const languageSelect = $('languageSelect');
+        if (languageSelect) languageSelect.value = LANG;
+    } else {
+        console.warn('Idioma no disponible:', LANG);
+    }
+};
+
 function init(next) {
+    $('info').style.display = 'block';
     ACTUAL = {
         inst: 'init',
         step: 0,
@@ -368,16 +390,17 @@ function nextStep() {
 function hideDoc() {
     this.blur();
     $('info').className = $('info').className == 'closed' ? '' : 'closed';
-    this.innerHTML = $('info').className == 'closed' ? 'Abrir' : 'Cerrar';
+    this.innerHTML = $('info').className == 'closed' ? TEXTOS[LANG].open : TEXTOS[LANG].close;
 };
 
 function nextDoc() {
     if (ACTUAL.inst == 'finished') return false;
     if ($('info').className == 'fclosed') $('info').className = '';
-    $('info_cont').innerHTML = DOC[ACTUAL.inst][ACTUAL.step].replace(/\*([^\*]+)\*/g, '<span>$1</span>');
+    $('info_cont').innerHTML = TEXTOS[LANG][ACTUAL.inst][ACTUAL.step-1].replace(/\*([^\*]+)\*/g, '<span>$1</span>');
 };
 
 function keyPress(e) {
+    // Enter and space keys
     var nextKeys = [13, 32];
     if (nextKeys.indexOf(e.charCode) != -1) nextStep();
 };
@@ -388,8 +411,7 @@ function buttonNextStep() {
 };
 
 function about() {
-    this.blur();
     $('info').className = '';
-    $('info_b_c').innerHTML = $('info').className == 'closed' ? 'Abrir' : 'Cerrar';
+    $('info_b_c').innerHTML = $('info').className == 'closed' ? TEXTOS[LANG].open : TEXTOS[LANG].close;
     $('info_cont').innerHTML = ABOUT;
 };
