@@ -3,14 +3,14 @@
    version="1.1"
    x="0px"
    y="0px"
-   viewBox="0 0 800 600"
+   viewBox="0 0 800 509"
    enable-background="new 0 0 800 600"
    xml:space="preserve"
    id="svg130"
    width="800"
-   height="600"
+   height="509"
    sodipodi:docname="vonneumann.svg"
-   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -23,16 +23,17 @@
    inkscape:pageopacity="0.0"
    inkscape:pagecheckerboard="0"
    inkscape:deskcolor="#d1d1d1"
-   inkscape:zoom="1.4354285"
-   inkscape:cx="403.36386"
-   inkscape:cy="270.99921"
-   inkscape:window-width="1800"
-   inkscape:window-height="1097"
+   inkscape:zoom="2.0300025"
+   inkscape:cx="429.30982"
+   inkscape:cy="256.15732"
+   inkscape:window-width="2556"
+   inkscape:window-height="1403"
    inkscape:window-x="0"
-   inkscape:window-y="44"
-   inkscape:window-maximized="0"
-   inkscape:current-layer="g11"
-   showgrid="true"><inkscape:grid
+   inkscape:window-y="0"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="svg130"
+   showgrid="true"
+   showguides="false"><inkscape:grid
      id="grid1"
      units="px"
      originx="0"
@@ -82,12 +83,8 @@
     <g
    id="g11"
    inkscape:label="CPU"
-   style="display:inline"><text
-     font-size="12"
-     id="text15-6"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-     x="462.82812"
-     y="509.78906">CPU</text><rect
+   style="display:inline"
+   transform="translate(-4,-18)"><rect
      style="display:inline;fill:#ffd5d5;fill-opacity:1;stroke:#666666;stroke-width:1.99438;stroke-dasharray:none;stroke-opacity:1"
      id="rect4"
      width="328.97751"
@@ -130,12 +127,7 @@
    d="m 139,80 v 59 H 80 V 80 h 59 m 1,-1 h -1 -59 -1 v 1 59 1 h 1 59 1 v -1 -59 z"
    id="path2" />
             </g>
-            <text
-   font-size="12"
-   id="text2"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="69.415649"
-   y="86.61129">Decodificador</text>
+            
         </g>
         <g
    id="g5"
@@ -155,12 +147,7 @@
    d="M 339,81 V 99 H 241 V 81 h 98 m 1,-1 H 240 v 20 h 100 z"
    id="path3" />
             </g>
-            <text
-   font-size="12"
-   id="text4"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="241.19292"
-   y="63.450516">Cont. Programa</text>
+            
         </g>
         <g
    id="g7"
@@ -179,19 +166,9 @@
    d="m 339,141 v 18 h -98 v -18 h 98 m 1,-1 H 240 v 20 h 100 z"
    id="path5" />
             </g>
-            <text
-   font-size="12"
-   id="text6"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="233.02"
-   y="172.6904">R. Instrucciones</text>
+            
         </g>
-        <text
-   font-size="12"
-   id="text7"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="100.822"
-   y="229.80664">Unidad de control</text>
+        
     </g><g
      id="ALU"
      style="display:inline"
@@ -211,12 +188,7 @@
    d="M 759,41 V 239 H 421 V 41 h 338 m 1,-1 H 420 v 200 h 340 z"
    id="path7" />
         </g>
-        <text
-   font-size="12"
-   id="text8"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="481.0636"
-   y="240.80165">Unidad aritmético-lógica (ALU)</text>
+        
         
         
         <g
@@ -236,17 +208,7 @@
    fill="#7ac943"
    d="m 629,191 v 18 h -78 v -18 h 78 m 1,-1 h -80 v 20 h 80 z"
    id="path9" />
-            </g><text
-     font-size="12"
-     id="text10"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
-     x="525.44232"
-     y="154.88594">Acumulador</text><text
-     font-size="12"
-     id="text12"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
-     x="637.58594"
-     y="154.88594">R. Entrada</text><g
+            </g><g
      id="g12"
      transform="translate(-16.337899,-29.88736)"
      style="display:inline">
@@ -278,7 +240,7 @@
     </g></g>
     <g
    id="Memoria"
-   transform="translate(-190.08669,-248.53582)"
+   transform="translate(-194.08669,-266.53582)"
    style="display:inline">
         <g
    id="g15"
@@ -293,12 +255,7 @@
    style="stroke:#ff931e;stroke-opacity:1" />
             
         </g>
-        <text
-   font-size="12"
-   id="text15"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="213.74294"
-   y="758.32489">Memoria</text>
+        
         <g
    display="inline"
    id="g17">
@@ -324,12 +281,7 @@
    d="m 319,341 v 18 h -88 v -18 h 88 m 1,-1 h -90 v 20 h 90 z"
    id="path28" />
             </g>
-            <text
-   font-size="12"
-   id="text29"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="225.02879"
-   y="326.94989">R. Direcciones</text>
+            
         </g>
         <g
    id="g31"
@@ -348,19 +300,9 @@
    d="m 569,341 v 18 h -88 v -18 h 88 m 1,-1 h -90 v 20 h 90 z"
    id="path29" />
             </g>
-            <text
-   font-size="12"
-   id="text30"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="498.70898"
-   y="328.26758">R. Datos</text>
+            
         </g>
-        <text
-   font-size="12"
-   id="text31"
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
-   x="343.31741"
-   y="356.03519">Tabla de memoria</text><g
+        <g
    id="g19"
    transform="translate(-324.56922,-239.24952)"><path
      id="path1-7"
@@ -567,7 +509,8 @@
     <g
    id="Flechas-3"
    style="display:inline;stroke:#cccccc;stroke-opacity:1"
-   inkscape:label="Flechas-gris">
+   inkscape:label="Flechas-gris"
+   transform="translate(-4,-18)">
         <g
    id="CPro-RDir-5"
    style="display:inline;stroke:#cccccc;stroke-opacity:1">
@@ -1324,7 +1267,7 @@
     </g><g
    id="Flechas"
    style="display:inline"
-   sodipodi:insensitive="true">
+   transform="translate(-4,-18)">
         <g
    id="CPro-RDir"
    style="display:inline">
@@ -2038,12 +1981,99 @@
    id="polygon130"
    d="M 540,198.535 543.535,195 540,191.465 Z" />
         </g>
-    </g>
+    </g><g
+   id="g18"
+   inkscape:label="Textos"
+   style="display:inline"><text
+     font-size="12"
+     id="t_decodificador"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="69.415649"
+     y="86.61129"
+     transform="translate(580.35974,-26.197225)"
+     inkscape:label="t_decodificador">Decodificador</text><text
+     font-size="12"
+     id="t_contprograma"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="241.19292"
+     y="63.450516"
+     transform="translate(269.06294,-3.0247337)"
+     inkscape:label="t_contprograma">Cont. Programa</text><text
+     font-size="12"
+     id="t_rinst"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="233.02"
+     y="172.6904"
+     transform="translate(268.1138,3.030336)"
+     inkscape:label="t_rinst">R. Instrucciones</text><text
+     font-size="12"
+     id="t_acumulador"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="525.44232"
+     y="154.88594"
+     transform="translate(1.7375674,136.99194)"
+     inkscape:label="t_acumulador">Acumulador</text><text
+     font-size="12"
+     id="t_rentrada"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="637.58594"
+     y="154.88594"
+     transform="translate(1.7375674,136.99194)"
+     inkscape:label="t_rentrada">R. Entrada</text><text
+     font-size="12"
+     id="t_rdatos"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="498.70898"
+     y="328.26758"
+     transform="translate(-194,-268)"
+     inkscape:label="t_rdatos">R. Datos</text><text
+     font-size="12"
+     id="t_rdir"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="225.02879"
+     y="326.94989"
+     inkscape:label="t_rdir"
+     transform="translate(-194.08669,-266.53582)">R. Direcciones</text><text
+     font-size="12"
+     id="t_tmemoria"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="343.31741"
+     y="356.03519"
+     transform="translate(-194.08669,-266.53582)"
+     inkscape:label="t_tmemoria">Tabla de memoria</text><text
+     font-size="12"
+     id="t_ucontrol"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="100.822"
+     y="229.80664"
+     transform="translate(383.68125,-8)"
+     inkscape:label="t_ucontrol">Unidad de control</text><text
+     font-size="12"
+     id="t_alu"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.6667px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="481.0636"
+     y="240.80165"
+     transform="translate(3.4396649,206.29007)"
+     inkscape:label="t_alu">Unidad aritmético-lógica (ALU)</text><text
+     font-size="12"
+     id="t_memoria"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="213.74294"
+     y="758.32489"
+     transform="translate(-194.08669,-266.53582)"
+     inkscape:label="t_memoria">Memoria</text><text
+     font-size="12"
+     id="t_cpu"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline"
+     x="462.82812"
+     y="509.78906"
+     transform="translate(-4,-18)"
+     inkscape:label="t_cpu">CPU</text></g>
     <g
    id="g13"
    inkscape:label="Datos"
    style="display:inline;fill:#000000;stroke:none"
-   sodipodi:insensitive="true"><text
+   transform="translate(-4,-18)"><text
      id="RIns"
      font-size="14"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14px;font-family:Monospace;-inkscape-font-specification:'Monospace, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;display:inline;fill:#000000;stroke:none"

@@ -227,6 +227,7 @@ function runProgram(uploaded = false) {
     } else {
         var tmtNumber = filaSeleccionada.id.split("_")[1];
         TM = TMT[tmtNumber].table;
+        $('title').textContent = TMT[tmtNumber].tag;
     }
     $('ejercicios').style.display = 'none';
     $('svg').classList.remove('hidden');
@@ -276,6 +277,8 @@ function reset() {
     $('ejercicios').style.display = 'block';
     $('svg').classList.add('hidden');
     $('info').style.display = 'none';
+    $('title').textContent = '';
+    _s('Deco').textContent = '';
 }
 
 function setText() {
@@ -290,10 +293,25 @@ function setText() {
     $('dir').innerHTML = TEXTOS[LANG].deco;
     $('comment').innerHTML = TEXTOS[LANG].comment;
     $('exercise').innerHTML = TEXTOS[LANG].exercise;
-    if (ACTUAL.inst && ACTUAL.step) {
+    if (ACTUAL.inst != 'finished' && ACTUAL.inst && ACTUAL.step) {
         $('info_cont').innerHTML = TEXTOS[LANG][ACTUAL.inst][ACTUAL.step-1].replace(/\*([^\*]+)\*/g, '<span>$1</span>');
     }
     document.title = TEXTOS[LANG].title;
+
+    // SVG labels
+    _s('t_cpu').textContent = TEXTOS[LANG].SVG.cpu;
+    _s('t_memoria').textContent = TEXTOS[LANG].SVG.memoria;
+    _s('t_alu').textContent = TEXTOS[LANG].SVG.alu;
+    _s('t_rdir').textContent = TEXTOS[LANG].SVG.rdir;
+    _s('t_rdatos').textContent = TEXTOS[LANG].SVG.rdatos;
+    _s('t_rinst').textContent = TEXTOS[LANG].SVG.rinst;
+    _s('t_tmemoria').textContent = TEXTOS[LANG].SVG.tmemoria;
+    _s('t_rentrada').textContent = TEXTOS[LANG].SVG.rentrada;
+    _s('t_decodificador').textContent = TEXTOS[LANG].SVG.decodificador;
+    _s('t_contprograma').textContent = TEXTOS[LANG].SVG.contprograma;
+    _s('t_ucontrol').textContent = TEXTOS[LANG].SVG.ucontrol;
+    _s('t_rentrada').textContent = TEXTOS[LANG].SVG.rentrada;
+    _s('t_acumulador').textContent = TEXTOS[LANG].SVG.acumulador;
 }
 
 function changeLanguage(e) {

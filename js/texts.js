@@ -17,6 +17,20 @@ const TEXTOS = {
         deco: "D",
         comment: "Comentario",
         exercise: "Ejercicio",
+        SVG: {
+            rdir: "R. Direcciones",
+            rdatos: "R. Datos",
+            memoria: "Memoria",
+            tmemoria: "Tabla de memoria",
+            rinst: "R. Instrucciones",
+            decodificador: "Decodificador",
+            contprograma: "Cont. programa",
+            ucontrol: "Unidad de control",
+            acumulador: "Acumulador",
+            rentrada: "R. Entrada",
+            alu: "Unidad aritmético lógica (ALU)",
+            cpu: "CPU"
+        },
         INFOINST: [
             ['0000','Suma'],
             ['0001','Resta'],
@@ -109,6 +123,20 @@ const TEXTOS = {
         deco: "D",
         comment: "Iruzkin",
         exercise: "Ariketa",
+        SVG: {
+            rdir: "Helbide err.",
+            rdatos: "Datu err.",
+            memoria: "Memoria",
+            tmemoria: "Memoriaren taula",
+            rinst: "Agindu erregistroa",
+            decodificador: "Deskodetzailea",
+            contprograma: "Programaren kont.",
+            ucontrol: "Kontrol unitatea",
+            acumulador: "Akumuladorea",
+            rentrada: "Sarrera err.",
+            alu: "Aritmetika-logika unitatea (ALU)",
+            cpu: "CPU"
+        },
         INFOINST: [
             ['0000','Batuketa'],
             ['0001','Kenketa'],
@@ -197,6 +225,20 @@ const TEXTOS = {
         deco: "D",
         comment: "Comment",
         exercise: "Exercise",
+        SVG: {
+            rdir: "Address Reg.",
+            rdatos: "Data Reg.",
+            memoria: "Memory",
+            tmemoria: "Memory table",
+            rinst: "Instruction Reg.",
+            decodificador: "Decoder",
+            contprograma: "Program counter",
+            ucontrol: "Control unit",
+            acumulador: "Accumulator",
+            rentrada: "Input Reg.",
+            alu: "Arithmetic Logic Unit (ALU)",
+            cpu: "CPU"
+        },
         INFOINST: [
             ['0000','Sum'],
             ['0001','Subtract'],
