@@ -214,15 +214,16 @@ function programSelector() {
         tbody.appendChild(tr);
     }
 
-    btnEjecutar.addEventListener('click', runProgram, false);
+    btnEjecutar.addEventListener('click', function() { runProgram(false); }, false);
     $('btnUpload').addEventListener('click', uploadProgram, false);
     $('info_b_a').addEventListener('click', about, false);
     const languageSelect = $('languageSelect');
     if (languageSelect) languageSelect.value = LANG;
 };
 
-function runProgram(uploaded = false) {
-    if (uploaded.isValid === false) {
+function runProgram(uploaded) {
+    console.log(uploaded);
+    if (uploaded !== false) {
         TM = JSON.parse(uploaded).table;
     } else {
         var tmtNumber = filaSeleccionada.id.split("_")[1];
@@ -279,6 +280,9 @@ function reset() {
     $('info').style.display = 'none';
     $('title').textContent = '';
     _s('Deco').textContent = '';
+    document.querySelectorAll("#tabla-ejercicios tbody tr").forEach(f => f.classList.remove("seleccionada"));
+    filaSeleccionada = null;
+    btnEjecutar.disabled = true;
 }
 
 function setText() {
