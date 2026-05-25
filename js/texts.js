@@ -17,6 +17,7 @@ const TEXTOS = {
         deco: "D",
         comment: "Comentario",
         exercise: "Ejercicio",
+        ABOUT: "<span><a target='_blank' href='http://xitrus.es'>Pedro Gutiérrez</a></span>: diseño y desarrollo del simulador <br><span>Noemi Navarro</span>: documentación de la ejecución <br><span><a target='_blank' href='https://github.com/yuki/'>Rubén Gómez</a></span>: ampliación del set de instrucciones, mejoras gráficas y traducciones<br>",
         SVG: {
             rdir: "R. Direcciones",
             rdatos: "R. Datos",
@@ -123,6 +124,7 @@ const TEXTOS = {
         deco: "D",
         comment: "Iruzkin",
         exercise: "Ariketa",
+        ABOUT: "<span><a target='_blank' href='http://xitrus.es'>Pedro Gutiérrez</a></span>: simuladorearen diseinua eta garapena <br><span>Noemi Navarro</span>: exekuzioaren dokumentazioa <br><span><a target='_blank' href='https://github.com/yuki/'>Rubén Gómez</a></span>: aginduen multzoaren hedapena, grafika hobekuntzak eta itzulpenak<br>",
         SVG: {
             rdir: "Helbide err.",
             rdatos: "Datu err.",
@@ -225,6 +227,7 @@ const TEXTOS = {
         deco: "D",
         comment: "Comment",
         exercise: "Exercise",
+        ABOUT: "<span><a target='_blank' href='http://xitrus.es'>Pedro Gutiérrez</a></span>: simulator design and development <br><span>Noemi Navarro</span>: execution documentation <br><span><a target='_blank' href='https://github.com/yuki/'>Rubén Gómez</a></span>: instruction set expansion, graphical improvements and translations<br>",
         SVG: {
             rdir: "Address Reg.",
             rdatos: "Data Reg.",

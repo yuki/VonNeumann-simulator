@@ -164,7 +164,6 @@ body {
     text-decoration: underline
 }
 
-#info.fclosed .info_cont,
 #info.closed .info_cont {
     visibility: hidden;
 }

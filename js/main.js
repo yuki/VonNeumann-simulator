@@ -157,12 +157,6 @@ var DECODER = new Map([
     ['1110','T'],
 ]);
 
-// Credits
-var ABOUT =
-    '<span><a target="_blank" href="http://xitrus.es">Pedro Gutiérrez</a></span>: diseño y desarrollo del simulador <br>' +
-    '<span>Noemi Navarro</span>: documentación de la ejecución <br>' +
-    '<span><a target="_blank" href="https://github.com/yuki/">Rubén Gómez</a></a></span>: ampliación del set de instrucciones <br>'
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function instructionTable() {
@@ -277,7 +271,10 @@ function uploadProgram() {
 function reset() {
     $('ejercicios').style.display = 'block';
     $('svg').classList.add('hidden');
-    $('info').style.display = 'none';
+    $('info_cont').style.display = 'hidden';
+    $('info_b_r').style.display = 'none';
+    $('info_b_c').style.display = 'none';
+    $('info_b_n').style.display = 'none';
     $('title').textContent = '';
     _s('Deco').textContent = '';
     document.querySelectorAll("#tabla-ejercicios tbody tr").forEach(f => f.classList.remove("seleccionada"));
@@ -290,7 +287,7 @@ function setText() {
     $('btnEjecutar').innerHTML = TEXTOS[LANG].execute;
     $('btnUpload').innerHTML = TEXTOS[LANG].upload;
     $('info_b_a').innerHTML = TEXTOS[LANG].credits;
-    $('info_b_c').innerHTML = TEXTOS[LANG].close;
+    $('info_b_c').innerHTML = TEXTOS[LANG].open;
     $('info_b_n').innerHTML = TEXTOS[LANG].next;
     $('info_b_r').innerHTML = TEXTOS[LANG].changeprogram;
     $('inst').innerHTML = TEXTOS[LANG].instruction;
@@ -417,7 +414,8 @@ function hideDoc() {
 
 function nextDoc() {
     if (ACTUAL.inst == 'finished') return false;
-    if ($('info').className == 'fclosed') $('info').className = '';
+    if ($('info').className == 'closed') $('info').className = '';
+    $('info_b_c').innerHTML = TEXTOS[LANG].close;
     $('info_cont').innerHTML = TEXTOS[LANG][ACTUAL.inst][ACTUAL.step-1].replace(/\*([^\*]+)\*/g, '<span>$1</span>');
 };
 
@@ -433,7 +431,15 @@ function buttonNextStep() {
 };
 
 function about() {
-    $('info').className = '';
-    $('info_b_c').innerHTML = $('info').className == 'closed' ? TEXTOS[LANG].open : TEXTOS[LANG].close;
-    $('info_cont').innerHTML = ABOUT;
+    var info = $('info');
+    var isClosed = info.className == 'closed';
+    var isAbout = $('info_cont').innerHTML === TEXTOS[LANG].ABOUT;
+    if (!isClosed && isAbout) {
+        info.className = 'closed';
+        $('info_b_c').innerHTML = TEXTOS[LANG].open;
+        return;
+    }
+    info.className = '';
+    $('info_b_c').innerHTML = TEXTOS[LANG].close;
+    $('info_cont').innerHTML = TEXTOS[LANG].ABOUT;
 };
